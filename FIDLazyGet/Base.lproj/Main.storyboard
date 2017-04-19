@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -653,7 +656,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider=""/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -669,7 +672,7 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="u3C-Qu-Pfx" kind="relationship" relationship="window.shadowedContentViewController" id="5FH-SD-mZH"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -677,17 +680,233 @@
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <scene sceneID="a80-yQ-TOa">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="u3C-Qu-Pfx" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="Vio-N2-CtM">
+                        <rect key="frame" x="0.0" y="0.0" width="821" height="446"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="yTY-Bn-s8z">
+                                <rect key="frame" x="361" y="173" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="6yr-M7-ogp"/>
+                                    <constraint firstAttribute="width" constant="100" id="hhG-co-Axm"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="cat" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3vb-gn-mqF">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickAction:" target="u3C-Qu-Pfx" id="XUd-Ae-i3u"/>
+                                </connections>
+                            </button>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBg-s8-sWj">
+                                <rect key="frame" x="0.0" y="0.0" width="361" height="374"/>
+                                <clipView key="contentView" id="MDL-je-RgS">
+                                    <rect key="frame" x="1" y="1" width="359" height="372"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="hWS-Y5-Czr">
+                                            <rect key="frame" x="0.0" y="0.0" width="710" height="372"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="359" height="372"/>
+                                            <size key="maxSize" width="710" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="1Fs-mU-TQN">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="1jj-KM-6bi">
+                                    <rect key="frame" x="344" y="1" width="16" height="372"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <scrollView wantsLayer="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKb-cB-crG">
+                                <rect key="frame" x="461" y="0.0" width="360" height="373"/>
+                                <clipView key="contentView" id="ooj-ol-2aq">
+                                    <rect key="frame" x="1" y="1" width="358" height="371"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="qOX-wd-PlF">
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="371"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="358" height="371"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="Wy1-wr-6pc">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="AB6-yf-jOA">
+                                    <rect key="frame" x="343" y="1" width="16" height="371"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="JTX-SG-ElU">
+                                <rect key="frame" x="48" y="420" width="154" height="18"/>
+                                <buttonCell key="cell" type="check" title="addSubview-self.view" bezelStyle="regularSquare" imagePosition="left" inset="2" id="OJh-sB-yRT">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectAddViewAction:" target="u3C-Qu-Pfx" id="qlr-Dp-7Cj"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="zqG-lt-SBv">
+                                <rect key="frame" x="48" y="401" width="124" height="18"/>
+                                <buttonCell key="cell" type="check" title="addSubview-self" bezelStyle="regularSquare" imagePosition="left" inset="2" id="rME-XM-uda">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectAddSelfAction:" target="u3C-Qu-Pfx" id="gp6-Xb-3qM"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="QXE-ao-qPV">
+                                <rect key="frame" x="48" y="382" width="202" height="18"/>
+                                <buttonCell key="cell" type="check" title="addSubview-self.contentView" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jlU-b4-758">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectAddSubviewContentAction:" target="u3C-Qu-Pfx" id="Gge-a2-t9K"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="1SK-kX-KfC">
+                                <rect key="frame" x="256" y="420" width="82" height="18"/>
+                                <buttonCell key="cell" type="check" title="LabelFont" bezelStyle="regularSquare" imagePosition="left" inset="2" id="9cj-yl-7sm">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="uef-2L-wQO">
+                                <rect key="frame" x="409" y="420" width="110" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonTitleNor" bezelStyle="regularSquare" imagePosition="left" inset="2" id="XrS-44-0Vq">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="RLa-f5-rsY">
+                                <rect key="frame" x="409" y="401" width="107" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonTitleSel" bezelStyle="regularSquare" imagePosition="left" inset="2" id="14G-cs-1iK">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="kTD-2d-5fj">
+                                <rect key="frame" x="525" y="420" width="122" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonImageNor" bezelStyle="regularSquare" imagePosition="left" inset="2" id="1LM-Az-DKD">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="RBy-nF-6xf">
+                                <rect key="frame" x="525" y="401" width="118" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonImageSel" bezelStyle="regularSquare" imagePosition="left" inset="2" id="axx-WS-4he">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="rUF-JM-ddu">
+                                <rect key="frame" x="653" y="420" width="143" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonTitleColorNor" bezelStyle="regularSquare" imagePosition="left" inset="2" id="5z2-U1-aGf">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="vKk-eg-2e1">
+                                <rect key="frame" x="653" y="401" width="140" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonTitleColorSel" bezelStyle="regularSquare" imagePosition="left" inset="2" id="kAg-iz-du2">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="VjC-Cg-wJJ">
+                                <rect key="frame" x="409" y="382" width="115" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonTitleFont" bezelStyle="regularSquare" imagePosition="left" inset="2" id="zQK-RQ-Hk4">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="58h-il-yld">
+                                <rect key="frame" x="525" y="382" width="112" height="18"/>
+                                <buttonCell key="cell" type="check" title="ButtonBgColor" bezelStyle="regularSquare" imagePosition="left" inset="2" id="suC-7O-TMh">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lBg-s8-sWj" firstAttribute="top" secondItem="QXE-ao-qPV" secondAttribute="bottom" constant="10" id="0eY-IS-ILe"/>
+                            <constraint firstItem="rUF-JM-ddu" firstAttribute="leading" secondItem="kTD-2d-5fj" secondAttribute="trailing" constant="10" id="2Wi-IL-l8F"/>
+                            <constraint firstItem="RLa-f5-rsY" firstAttribute="leading" secondItem="uef-2L-wQO" secondAttribute="leading" id="2Wu-ey-Sky"/>
+                            <constraint firstItem="ZKb-cB-crG" firstAttribute="leading" secondItem="yTY-Bn-s8z" secondAttribute="trailing" id="3QP-ir-naT"/>
+                            <constraint firstItem="JTX-SG-ElU" firstAttribute="leading" secondItem="Vio-N2-CtM" secondAttribute="leading" constant="50" id="6yI-Mt-wL7"/>
+                            <constraint firstItem="yTY-Bn-s8z" firstAttribute="centerY" secondItem="Vio-N2-CtM" secondAttribute="centerY" id="8yo-IQ-fXI"/>
+                            <constraint firstAttribute="bottom" secondItem="ZKb-cB-crG" secondAttribute="bottom" id="9RW-AR-ytv"/>
+                            <constraint firstItem="zqG-lt-SBv" firstAttribute="top" secondItem="JTX-SG-ElU" secondAttribute="bottom" constant="5" id="C1F-b8-FMa"/>
+                            <constraint firstItem="vKk-eg-2e1" firstAttribute="top" secondItem="rUF-JM-ddu" secondAttribute="bottom" constant="5" id="Ckg-cy-GnN"/>
+                            <constraint firstItem="QXE-ao-qPV" firstAttribute="leading" secondItem="zqG-lt-SBv" secondAttribute="leading" id="DqB-98-RoS"/>
+                            <constraint firstItem="QXE-ao-qPV" firstAttribute="top" secondItem="zqG-lt-SBv" secondAttribute="bottom" constant="5" id="EVX-yL-Anb"/>
+                            <constraint firstItem="ZKb-cB-crG" firstAttribute="top" secondItem="hWS-Y5-Czr" secondAttribute="top" id="IcN-QJ-ctw"/>
+                            <constraint firstItem="rUF-JM-ddu" firstAttribute="top" secondItem="Vio-N2-CtM" secondAttribute="top" constant="10" id="JcH-dL-zIl"/>
+                            <constraint firstItem="VjC-Cg-wJJ" firstAttribute="top" secondItem="RLa-f5-rsY" secondAttribute="bottom" constant="5" id="Jyb-gb-S6j"/>
+                            <constraint firstItem="JTX-SG-ElU" firstAttribute="top" secondItem="Vio-N2-CtM" secondAttribute="top" constant="10" id="KC3-4c-j6M"/>
+                            <constraint firstItem="58h-il-yld" firstAttribute="leading" secondItem="RBy-nF-6xf" secondAttribute="leading" id="KzU-df-XNU"/>
+                            <constraint firstItem="1SK-kX-KfC" firstAttribute="centerY" secondItem="JTX-SG-ElU" secondAttribute="centerY" id="Lhc-uf-Lmf"/>
+                            <constraint firstItem="RBy-nF-6xf" firstAttribute="top" secondItem="kTD-2d-5fj" secondAttribute="bottom" constant="5" id="P8D-u3-7Jx"/>
+                            <constraint firstItem="RLa-f5-rsY" firstAttribute="top" secondItem="uef-2L-wQO" secondAttribute="bottom" constant="5" id="TI9-Cz-YhR"/>
+                            <constraint firstItem="kTD-2d-5fj" firstAttribute="top" secondItem="Vio-N2-CtM" secondAttribute="top" constant="10" id="TJZ-vB-Aub"/>
+                            <constraint firstItem="uef-2L-wQO" firstAttribute="leading" secondItem="yTY-Bn-s8z" secondAttribute="centerX" id="VfO-KZ-Um3"/>
+                            <constraint firstItem="yTY-Bn-s8z" firstAttribute="leading" secondItem="lBg-s8-sWj" secondAttribute="trailing" id="biC-HQ-jGH"/>
+                            <constraint firstAttribute="bottom" secondItem="lBg-s8-sWj" secondAttribute="bottom" id="cGy-Dd-JVX"/>
+                            <constraint firstItem="58h-il-yld" firstAttribute="top" secondItem="RBy-nF-6xf" secondAttribute="bottom" constant="5" id="dRU-Jg-6Hd"/>
+                            <constraint firstItem="uef-2L-wQO" firstAttribute="centerY" secondItem="1SK-kX-KfC" secondAttribute="centerY" id="exb-uv-hnU"/>
+                            <constraint firstAttribute="trailing" secondItem="ZKb-cB-crG" secondAttribute="trailing" id="f8V-RY-CfM"/>
+                            <constraint firstItem="RBy-nF-6xf" firstAttribute="leading" secondItem="kTD-2d-5fj" secondAttribute="leading" id="fFu-AR-Ujc"/>
+                            <constraint firstItem="zqG-lt-SBv" firstAttribute="leading" secondItem="JTX-SG-ElU" secondAttribute="leading" id="hln-TB-9WD"/>
+                            <constraint firstItem="1SK-kX-KfC" firstAttribute="leading" secondItem="QXE-ao-qPV" secondAttribute="trailing" constant="10" id="iRn-SP-2Ur"/>
+                            <constraint firstItem="vKk-eg-2e1" firstAttribute="leading" secondItem="rUF-JM-ddu" secondAttribute="leading" id="m5k-yD-JQ1"/>
+                            <constraint firstItem="kTD-2d-5fj" firstAttribute="leading" secondItem="uef-2L-wQO" secondAttribute="trailing" constant="10" id="mSi-7P-i9l"/>
+                            <constraint firstItem="yTY-Bn-s8z" firstAttribute="centerX" secondItem="Vio-N2-CtM" secondAttribute="centerX" id="tZp-wi-y1R"/>
+                            <constraint firstItem="lBg-s8-sWj" firstAttribute="leading" secondItem="Vio-N2-CtM" secondAttribute="leading" id="tqD-2G-01L"/>
+                            <constraint firstItem="VjC-Cg-wJJ" firstAttribute="leading" secondItem="RLa-f5-rsY" secondAttribute="leading" id="yk9-oA-CME"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkBoxButtonBgColor" destination="58h-il-yld" id="2n5-47-nms"/>
+                        <outlet property="checkBoxButtonImageNor" destination="kTD-2d-5fj" id="h81-qt-5fr"/>
+                        <outlet property="checkBoxButtonImageSel" destination="RBy-nF-6xf" id="YJB-ZA-SFw"/>
+                        <outlet property="checkBoxButtonTitleColorNor" destination="rUF-JM-ddu" id="A27-yq-nSt"/>
+                        <outlet property="checkBoxButtonTitleColorSel" destination="vKk-eg-2e1" id="8TA-y4-hfV"/>
+                        <outlet property="checkBoxButtonTitleFont" destination="VjC-Cg-wJJ" id="kuK-md-6By"/>
+                        <outlet property="checkBoxButtonTitleNor" destination="uef-2L-wQO" id="GsB-f7-bNE"/>
+                        <outlet property="checkBoxButtonTitleSel" destination="RLa-f5-rsY" id="eJZ-Pk-K91"/>
+                        <outlet property="checkBoxLabelFont" destination="1SK-kX-KfC" id="c0h-M6-qpz"/>
+                        <outlet property="checkBoxSelf" destination="zqG-lt-SBv" id="lK5-39-MCF"/>
+                        <outlet property="checkBoxSelfContent" destination="QXE-ao-qPV" id="nTk-Mt-kdM"/>
+                        <outlet property="checkBoxSelfView" destination="JTX-SG-ElU" id="2lz-mF-Nuv"/>
+                        <outlet property="leftTextView" destination="hWS-Y5-Czr" id="ZUx-Gt-Stj"/>
+                        <outlet property="rightTextView" destination="qOX-wd-PlF" id="u2z-6j-bLm"/>
+                    </connections>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="rah-mZ-lgA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="72.5" y="659"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cat" width="100" height="115"/>
+    </resources>
 </document>
