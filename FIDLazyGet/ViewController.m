@@ -18,6 +18,7 @@
 @property (weak) IBOutlet NSButton *checkBoxSelfContent;
 
 @property (weak) IBOutlet NSButton *checkBoxLabelFont;
+@property (weak) IBOutlet NSButton *checkBoxLabelTextColor;
 
 @property (weak) IBOutlet NSButton *checkBoxButtonTitleNor;
 @property (weak) IBOutlet NSButton *checkBoxButtonTitleSel;
@@ -40,7 +41,7 @@
 - (IBAction)clickAction:(id)sender {
         NSArray *classNames = [self matchString:self.leftTextView.string toRegexString:@"\\)(.+?)\\*"];
         NSArray *propertyNames = [self matchString:self.leftTextView.string toRegexString:@"\\*(.+?)\\;"];
-//    self.leftTextView.string
+
     NSString *getStrings = [NSString string];
     for (NSInteger index = 0; index < classNames.count; index++) {
         NSString *className = classNames[index];
@@ -52,9 +53,9 @@
         contentString = [self setViewStyleWithContentString:contentString propertyName:propertyName className:className];
         
         NSString *footString = [NSString stringWithFormat:@"    }\r    return _%@;\r}",propertyName];
-//        NSClassFromString(classNames[index]);
+
         getStrings = [NSString stringWithFormat:@"%@%@%@%@\r",getStrings,headString,contentString,footString];
-//        self.rightTextView.string = [NSString stringWithFormat:@"%@%@%@",headString,contentString,footString];
+
     }
     self.rightTextView.string = getStrings;
     
@@ -96,6 +97,9 @@
         if (self.checkBoxLabelFont.state == 1) {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setFont:<#(UIFont * _Nullable)#>];\r",setCodeString,propertyName];
         }
+        if (self.checkBoxLabelTextColor.state == 1) {
+            setCodeString = [NSString stringWithFormat:@"%@[_%@ setTextColor:<#(UIColor * _Nullable)#>];\r",setCodeString,propertyName];
+        }
     }else{
         return contentString;
     }
@@ -116,7 +120,7 @@
     }else if (self.checkBoxSelfContent.state == 1){
         superViewString = @"        UIView *superView = self.contentView;";
     }
-    contentString = [NSString stringWithFormat:@"%@\r%@        [superView addSubview:%@];\r",superViewString,contentString,propertyName];
+    contentString = [NSString stringWithFormat:@"%@\r%@        [superView addSubview:_%@];\r",superViewString,contentString,propertyName];
     return contentString;
 }
 
