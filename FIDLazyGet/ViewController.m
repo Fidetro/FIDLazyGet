@@ -78,9 +78,6 @@
         if (self.checkBoxButtonImageSel.state == 1) {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setImage:<#(nullable UIImage *)#> forState:UIControlStateSelected];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonImageSel.state == 1) {
-            setCodeString = [NSString stringWithFormat:@"%@[_%@ setImage:<#(nullable UIImage *)#> forState:UIControlStateSelected];\r",setCodeString,propertyName];
-        }
         if (self.checkBoxButtonTitleColorNor.state == 1) {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setTitleColor:<#(nullable UIColor *)#> forState:UIControlStateNormal];\r",setCodeString,propertyName];
         }
