@@ -19,6 +19,8 @@
 
 @property (weak) IBOutlet NSButton *checkBoxLabelFont;
 @property (weak) IBOutlet NSButton *checkBoxLabelTextColor;
+@property (weak) IBOutlet NSButton *checkBoxLabelText;
+@property (weak) IBOutlet NSButton *checkBoxImageViewImage;
 
 @property (weak) IBOutlet NSButton *checkBoxButtonTitleNor;
 @property (weak) IBOutlet NSButton *checkBoxButtonTitleSel;
@@ -28,6 +30,8 @@
 @property (weak) IBOutlet NSButton *checkBoxButtonTitleColorSel;
 @property (weak) IBOutlet NSButton *checkBoxButtonTitleFont;
 @property (weak) IBOutlet NSButton *checkBoxButtonBgColor;
+@property (weak) IBOutlet NSButton *checkBoxBgImageNor;
+@property (weak) IBOutlet NSButton *checkBoxBgImageSel;
 
 
 @end
@@ -36,12 +40,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
 }
 - (IBAction)clickAction:(id)sender {
-        NSArray *classNames = [self matchString:self.leftTextView.string toRegexString:@"\\)(.+?)\\*"];
-        NSArray *propertyNames = [self matchString:self.leftTextView.string toRegexString:@"\\*(.+?)\\;"];
-
+    NSArray *classNames = [self matchString:self.leftTextView.string toRegexString:@"\\)(.+?)\\*"];
+    NSArray *propertyNames = [self matchString:self.leftTextView.string toRegexString:@"\\*(.+?)\\;"];
+    
     NSString *getStrings = [NSString string];
     for (NSInteger index = 0; index < classNames.count; index++) {
         NSString *className = classNames[index];
@@ -53,51 +57,83 @@
         contentString = [self setViewStyleWithContentString:contentString propertyName:propertyName className:className];
         
         NSString *footString = [NSString stringWithFormat:@"    }\r    return _%@;\r}",propertyName];
-
+        
         getStrings = [NSString stringWithFormat:@"%@%@%@%@\r",getStrings,headString,contentString,footString];
-
+        
     }
     self.rightTextView.string = getStrings;
     
 }
 
 - (NSString *)setViewStyleWithContentString:(NSString *)contentString propertyName:(NSString *)propertyName className:(NSString *)className{
-
+    
     NSString *setCodeString = @"";
     
-    if ([className isEqualToString:@"UIButton"]) {
-        if (self.checkBoxButtonTitleNor.state == 1) {
-        setCodeString = [NSString stringWithFormat:@"%@[_%@ setTitle:<#(nullable NSString *)#> forState:UIControlStateNormal];\r",setCodeString,propertyName];
+    if ([className isEqualToString:@"UIButton"])
+    {
+        if (self.checkBoxButtonTitleNor.state == 1)
+        {
+            setCodeString = [NSString stringWithFormat:@"%@[_%@ setTitle:<#(nullable NSString *)#> forState:UIControlStateNormal];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonTitleSel.state == 1) {
-        setCodeString = [NSString stringWithFormat:@"%@[_%@ setTitle:<#(nullable NSString *)#> forState:UIControlStateSelected];\r",setCodeString,propertyName];
+        if (self.checkBoxButtonTitleSel.state == 1)
+        {
+            setCodeString = [NSString stringWithFormat:@"%@[_%@ setTitle:<#(nullable NSString *)#> forState:UIControlStateSelected];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonImageNor.state == 1) {
+        if (self.checkBoxButtonImageNor.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setImage:<#(nullable UIImage *)#> forState:UIControlStateNormal];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonImageSel.state == 1) {
+        if (self.checkBoxButtonImageSel.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setImage:<#(nullable UIImage *)#> forState:UIControlStateSelected];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonTitleColorNor.state == 1) {
+        if (self.checkBoxButtonTitleColorNor.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setTitleColor:<#(nullable UIColor *)#> forState:UIControlStateNormal];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonTitleColorSel.state == 1) {
+        if (self.checkBoxButtonTitleColorSel.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setTitleColor:<#(nullable UIColor *)#> forState:UIControlStateSelected];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonTitleFont.state == 1) {
+        if (self.checkBoxButtonTitleFont.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@.titleLabel setFont:<#(UIFont * _Nullable)#>];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxButtonBgColor.state == 1) {
+        if (self.checkBoxButtonBgColor.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setBackgroundColor:<#(UIColor * _Nullable)#>];\r",setCodeString,propertyName];
         }
-    }else if ([className isEqualToString:@"UILabel"]){
-        if (self.checkBoxLabelFont.state == 1) {
+        if (self.checkBoxBgImageNor.state == 1)
+        {
+            setCodeString = [NSString stringWithFormat:@"%@[_%@ setBackgroundImage:<#(nullable UIImage *)#> forState:UIControlStateNormal];\r",setCodeString,propertyName];
+        }
+        if (self.checkBoxBgImageSel.state == 1)
+        {
+            setCodeString = [NSString stringWithFormat:@"%@[_%@ setBackgroundImage:<#(nullable UIImage *)#> forState:UIControlStateSelected];\r",setCodeString,propertyName];
+        }
+    }else if ([className isEqualToString:@"UILabel"])
+    {
+        if (self.checkBoxLabelFont.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setFont:<#(UIFont * _Nullable)#>];\r",setCodeString,propertyName];
         }
-        if (self.checkBoxLabelTextColor.state == 1) {
+        if (self.checkBoxLabelTextColor.state == 1)
+        {
             setCodeString = [NSString stringWithFormat:@"%@[_%@ setTextColor:<#(UIColor * _Nullable)#>];\r",setCodeString,propertyName];
         }
-    }else{
+        if (self.checkBoxLabelText.state == 1)
+        {
+            setCodeString = [NSString stringWithFormat:@"%@_%@.text = <#text#>;\r",setCodeString,propertyName];
+        }
+    }else if ([className isEqualToString:@"UIImageView"])
+    {
+        if (self.checkBoxImageViewImage.state == 1)
+        {
+        setCodeString = [NSString stringWithFormat:@"%@_%@.image = [UIImage imageNamed:<#(nonnull NSString *)#>];\r",setCodeString,propertyName];
+        }
+    }
+    
+    else{
         return contentString;
     }
     contentString = [NSString stringWithFormat:@"%@        %@",contentString,setCodeString];
@@ -167,7 +203,7 @@
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
-
+    
     // Update the view, if already loaded.
 }
 
